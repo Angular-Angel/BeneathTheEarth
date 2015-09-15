@@ -1,0 +1,22 @@
+[
+	{
+		"singular" : "Longsword",
+		"plural" : "Longswords",
+		"adjective" : "Longsword",
+		"symbol" : "\\",
+		"color" : [192, 192, 192],
+		"stats" : [["Weight", 3], ["Two Handed"]],
+		"attacks" : [["Slash", [ ["Attack Bonus", 0], ["Damage", 1, 8]]]]
+	},
+        {
+		"singular" : "Wand",
+		"plural" : "Wands",
+		"adjective" : "Wand",
+		"symbol" : "/",
+		"color" : [255, 255, 51],
+                "script" : "WandScript.groovy",
+                "stats" : [],
+		"attacks" : []
+                
+        }
+]
