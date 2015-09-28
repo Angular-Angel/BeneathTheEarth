@@ -100,7 +100,7 @@ class Player extends Controller {
         char c = game.display.getKey();
         //set the default direction, so we can easily tell whether or not it's 
         //been changed.
-        int dir = -1;
+        float dir = -1;
         //depending on what the key entered was, set dir accordingly.
         switch (c) {
             case '4': dir = 3;
@@ -110,6 +110,14 @@ class Player extends Controller {
             case '8': dir = 0;
                 break;
             case '2': dir = 2;
+                break;
+            case '7': dir = 3.5;
+                break;
+            case '3': dir = 1.5;
+                break;
+            case '9': dir = 0.5;
+                break;
+            case '1': dir = 2.5;
                 break;
             case 'q': throw new PlayerWantsToQuitException();
             case 'g': pickUpItem();
@@ -126,10 +134,18 @@ class Player extends Controller {
             if (isxMirrored()) {
                 if (dir == 1) dir = 3;
                 else if (dir == 3) dir = 1;
+                else if (dir == 3.5) dir == 0.5
+                else if (dir == 2.5) dir == 1.5
+                else if (dir == 0.5) dir == 3.5
+                else if (dir == 1.5) dir == 2.5
             }
             if (isyMirrored()) {
                 if (dir == 0) dir = 2;
                 else if (dir == 2) dir = 0;
+                else if (dir == 3.5) dir == 2.5
+                else if (dir == 2.5) dir == 3.5
+                else if (dir == 0.5) dir == 1.5
+                else if (dir == 1.5) dir == 0.5
             }
             dir -= Rotation.cast(getRotation());
             while (dir <0) dir += 4;
@@ -141,6 +157,10 @@ class Player extends Controller {
                 case 1: l.move(1, 0); break;
                 case 2: l.move(0, 1); break;
                 case 3: l.move(-1, 0); break;
+                case 0.5: l.move(1, -1); break;
+                case 1.5: l.move(1, 1); break;
+                case 2.5: l.move(-1, 1); break;
+                case 3.5: l.move(-1, -1); break;
             }
             //move the player, and adjust things if they cross a border.
             if (l.bodyAt() != null) {

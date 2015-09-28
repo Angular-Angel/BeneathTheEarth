@@ -44,18 +44,35 @@ public class BeneathTheEarth extends Game {
         
         while (true) {
             display.setAll(new DisplayChar(' ', Color.black));
-            display.writeString(5, 8, "Hit any key to continue, and q to go back.");
+            display.writeString(5, 8, "1 for Rooms and Corridors, 2 for caverns, and q to go back.");
             display.repaint();
+            MapScript script;
+            LocalArea start;
+            Body body;
+            Controller player;
             switch (display.getKey()) {
                 case 'q': System.exit(0); return;
-                default: 
+                case '1': 
                     clock.clearActors();
-                    MapScript script = (MapScript) registry.readGroovyScript(new File("RoomCorridorScript.groovy"));
-                    LocalArea start = script.generateArea(this, "");
-                    Body body = new Body("Player", new AreaLocation(start, 5, 5), 
+                    script = (MapScript) registry.readGroovyScript(new File("RoomCorridorScript.groovy"));
+                    start = script.generateArea(this, "");
+                    body = new Body("Player", new AreaLocation(start, 5, 5), 
                            registry.bodyTypes.get("Human"));
                     start.addEntity(body);
-                    Controller player = (Controller) registry.readGroovyScript(new File("Player.groovy"));
+                    player = (Controller) registry.readGroovyScript(new File("Player.groovy"));
+                    player.setBody(body);
+                    player.setGame(this);
+                    clock.addActor(player);
+                    clock.play();
+                    break;
+                case '2':
+                    clock.clearActors();
+                    script = (MapScript) registry.readGroovyScript(new File("CaveScript.groovy"));
+                    start = script.generateArea(this, "");
+                    body = new Body("Player", new AreaLocation(start, 5, 5), 
+                           registry.bodyTypes.get("Human"));
+                    start.addEntity(body);
+                    player = (Controller) registry.readGroovyScript(new File("Player.groovy"));
                     player.setBody(body);
                     player.setGame(this);
                     clock.addActor(player);

@@ -53,14 +53,14 @@ class RoomCorridorScript implements MapScript {
         LocalArea ret = new LocalArea(width, height, floor, "Start");
         111
         
-        for (int i = 0; i < ret.getxDist(); i++) {
+        for (int i = 0; i < ret.getWidth(); i++) {
             ret.setTerrain(i, 0, wall);
-            ret.setTerrain(i, ret.getyDist() - 1, wall);
+            ret.setTerrain(i, ret.getHeight() - 1, wall);
         }
         
-        for (int i = 0; i < ret.getyDist(); i++) {
+        for (int i = 0; i < ret.getHeight(); i++) {
             ret.setTerrain(0, i, wall);
-            ret.setTerrain(ret.getxDist() - 1, i, wall);
+            ret.setTerrain(ret.getWidth() - 1, i, wall);
         }
         
         return ret;
@@ -70,17 +70,17 @@ class RoomCorridorScript implements MapScript {
         for (int i = 0; i < corridors; i++) {
             switch (game.random.nextInt(4)) {
                 case 0: LocalArea corridor = makeRoom(3, game.random.nextInt(8) +3);
-                    int x = game.random.nextInt(ret.getxDist()-2)+1;
+                    int x = game.random.nextInt(ret.getWidth()-2)+1;
                     if (ret.getTerrain(x, 0) == floor ||
                         ret.getTerrain(x-1, 0) == floor ||
                         ret.getTerrain(x+1, 0) == floor){
                         break;
                     }
                     ret.setTerrain(x, 0, floor);
-                    corridor.setTerrain(1, corridor.getyDist() -1, floor);
+                    corridor.setTerrain(1, corridor.getHeight() -1, floor);
                 
-                    ret.addBorder(corridor, x-1, -corridor.getyDist());
-                    corridor.addBorder(ret, -(x-1), corridor.getyDist());
+                    ret.addBorder(corridor, x-1, -corridor.getHeight());
+                    corridor.addBorder(ret, -(x-1), corridor.getHeight());
                     
                     LocalArea room;
                     switch(game.random.nextInt(2)){
@@ -90,32 +90,32 @@ class RoomCorridorScript implements MapScript {
                             break;
                         case 1: room = areas.get(game.random.nextInt(areas.size()));
                     }
-                    x = game.random.nextInt(room.getxDist()-2)+1;
-                    if (room.getTerrain(x, room.getyDist() -1) == floor ||
-                        room.getTerrain(x-1, room.getyDist() -1) == floor ||
-                        room.getTerrain(x+1, room.getyDist() -1) == floor){
+                    x = game.random.nextInt(room.getWidth()-2)+1;
+                    if (room.getTerrain(x, room.getHeight() -1) == floor ||
+                        room.getTerrain(x-1, room.getHeight() -1) == floor ||
+                        room.getTerrain(x+1, room.getHeight() -1) == floor){
                         areas.add(corridor);
                         break;
                     }
                 
-                    room.setTerrain(x, room.getyDist() -1, floor);
+                    room.setTerrain(x, room.getHeight() -1, floor);
                     corridor.setTerrain(1, 0, floor);
                 
-                    room.addBorder(corridor, (x-1), room.getyDist());
-                    corridor.addBorder(room, -(x-1), -room.getyDist());
+                    room.addBorder(corridor, (x-1), room.getHeight());
+                    corridor.addBorder(room, -(x-1), -room.getHeight());
                     break;
                 case 1: LocalArea corridor = makeRoom(game.random.nextInt(8) +3, 3);
-                    int y = game.random.nextInt(ret.getyDist()-2)+1;
-                    if (ret.getTerrain(ret.getxDist() -1, y) == floor ||
-                        ret.getTerrain(ret.getxDist() -1, y -1) == floor ||
-                        ret.getTerrain(ret.getxDist() -1, y +1) == floor){
+                    int y = game.random.nextInt(ret.getHeight()-2)+1;
+                    if (ret.getTerrain(ret.getWidth() -1, y) == floor ||
+                        ret.getTerrain(ret.getWidth() -1, y -1) == floor ||
+                        ret.getTerrain(ret.getWidth() -1, y +1) == floor){
                         break;
                     }
-                    ret.setTerrain(ret.getxDist() -1, y, floor);
+                    ret.setTerrain(ret.getWidth() -1, y, floor);
                     corridor.setTerrain(0, 1, floor);
                 
-                    ret.addBorder(corridor, ret.getxDist(), y-1);
-                    corridor.addBorder(ret, -ret.getxDist(), -(y-1));
+                    ret.addBorder(corridor, ret.getWidth(), y-1);
+                    corridor.addBorder(ret, -ret.getWidth(), -(y-1));
                     
                     LocalArea room;
                     switch(game.random.nextInt(2)){
@@ -125,7 +125,7 @@ class RoomCorridorScript implements MapScript {
                             break;
                         case 1: room = areas.get(game.random.nextInt(areas.size()));
                     }
-                    y = game.random.nextInt(room.getyDist()-2)+1;
+                    y = game.random.nextInt(room.getHeight()-2)+1;
                     if (room.getTerrain(0, y) == floor ||
                         room.getTerrain(0, y -1) == floor ||
                         room.getTerrain(0, y +1) == floor){
@@ -134,23 +134,23 @@ class RoomCorridorScript implements MapScript {
                     }
                     
                     room.setTerrain(0, y, floor);
-                    corridor.setTerrain(corridor.getxDist()-1, 1, floor);
+                    corridor.setTerrain(corridor.getWidth()-1, 1, floor);
                 
-                    room.addBorder(corridor, -corridor.getxDist(), y-1);
-                    corridor.addBorder(room, corridor.getxDist(), -(y-1));
+                    room.addBorder(corridor, -corridor.getWidth(), y-1);
+                    corridor.addBorder(room, corridor.getWidth(), -(y-1));
                     break;
                 case 2:LocalArea corridor = makeRoom(3, game.random.nextInt(8) +3);
-                    int x = game.random.nextInt(ret.getxDist()-2)+1;
-                    if (ret.getTerrain(x, ret.getyDist() -1) == floor ||
-                        ret.getTerrain(x -1, ret.getyDist() -1) == floor ||
-                        ret.getTerrain(x +1, ret.getyDist() -1) == floor){
+                    int x = game.random.nextInt(ret.getWidth()-2)+1;
+                    if (ret.getTerrain(x, ret.getHeight() -1) == floor ||
+                        ret.getTerrain(x -1, ret.getHeight() -1) == floor ||
+                        ret.getTerrain(x +1, ret.getHeight() -1) == floor){
                         break;
                     }
-                    ret.setTerrain(x, ret.getyDist() -1, floor);
+                    ret.setTerrain(x, ret.getHeight() -1, floor);
                     corridor.setTerrain(1, 0, floor);
                 
-                    ret.addBorder(corridor, (x-1), ret.getyDist());
-                    corridor.addBorder(ret, -(x-1), -ret.getyDist());
+                    ret.addBorder(corridor, (x-1), ret.getHeight());
+                    corridor.addBorder(ret, -(x-1), -ret.getHeight());
                     
                     LocalArea room;
                     switch(game.random.nextInt(2)){
@@ -161,7 +161,7 @@ class RoomCorridorScript implements MapScript {
                         case 1: room = areas.get(game.random.nextInt(areas.size()));
                     }
                     
-                    x = game.random.nextInt(room.getxDist()-2)+1;
+                    x = game.random.nextInt(room.getWidth()-2)+1;
                     if (room.getTerrain(x, 0) == floor ||
                         room.getTerrain(x -1, 0) == floor ||
                         room.getTerrain(x +1, 0) == floor){
@@ -170,23 +170,23 @@ class RoomCorridorScript implements MapScript {
                     }
                     
                     room.setTerrain(x, 0, floor);
-                    corridor.setTerrain(1, corridor.getyDist() -1, floor);
+                    corridor.setTerrain(1, corridor.getHeight() -1, floor);
                 
-                    room.addBorder(corridor, x-1, -corridor.getyDist());
-                    corridor.addBorder(room, -(x-1), corridor.getyDist());
+                    room.addBorder(corridor, x-1, -corridor.getHeight());
+                    corridor.addBorder(room, -(x-1), corridor.getHeight());
                     break;
                 case 3: LocalArea corridor = makeRoom(game.random.nextInt(8) +3, 3);
-                    int y = game.random.nextInt(ret.getyDist()-2)+1;
+                    int y = game.random.nextInt(ret.getHeight()-2)+1;
                     if (ret.getTerrain(0, y) == floor ||
                         ret.getTerrain(0, y +1) == floor ||
                         ret.getTerrain(0, y -1) == floor){
                         break;
                     }
                     ret.setTerrain(0, y, floor);
-                    corridor.setTerrain(corridor.getxDist()-1, 1, floor);
+                    corridor.setTerrain(corridor.getWidth()-1, 1, floor);
                 
-                    ret.addBorder(corridor, -corridor.getxDist(), y-1);
-                    corridor.addBorder(ret, corridor.getxDist(), -(y-1));
+                    ret.addBorder(corridor, -corridor.getWidth(), y-1);
+                    corridor.addBorder(ret, corridor.getWidth(), -(y-1));
                     
                     LocalArea room;
                     switch(game.random.nextInt(2)){
@@ -196,19 +196,19 @@ class RoomCorridorScript implements MapScript {
                             break;
                         case 1: room = areas.get(game.random.nextInt(areas.size()));
                     }
-                    y = game.random.nextInt(room.getyDist()-2)+1;
-                    if (room.getTerrain(room.getxDist() -1, y) == floor ||
-                        room.getTerrain(room.getxDist() -1, y +1) == floor ||
-                        room.getTerrain(room.getxDist() -1, y -1) == floor){
+                    y = game.random.nextInt(room.getHeight()-2)+1;
+                    if (room.getTerrain(room.getWidth() -1, y) == floor ||
+                        room.getTerrain(room.getWidth() -1, y +1) == floor ||
+                        room.getTerrain(room.getWidth() -1, y -1) == floor){
                         areas.add(corridor);
                         break;
                     }
                     
-                    room.setTerrain(room.getxDist() -1, y, floor);
+                    room.setTerrain(room.getWidth() -1, y, floor);
                     corridor.setTerrain(0, 1, floor);
                 
-                    room.addBorder(corridor, room.getxDist(), y-1);
-                    corridor.addBorder(room, -room.getxDist(), -(y-1));
+                    room.addBorder(corridor, room.getWidth(), y-1);
+                    corridor.addBorder(room, -room.getWidth(), -(y-1));
                     break;
             }
         }
@@ -218,11 +218,11 @@ class RoomCorridorScript implements MapScript {
     }
     
     private void populateRoom(LocalArea area) {
-        int size = area.getxDist() * area.getyDist();
+        int size = area.getWidth() * area.getHeight();
         size /= 9;
         size = game.random.nextInt(size);
         for (int i = 0; i < size; i++) {
-        int x = game.random.nextInt(area.getxDist()), y = game.random.nextInt(area.getyDist());
+        int x = game.random.nextInt(area.getWidth()), y = game.random.nextInt(area.getHeight());
             BodyDefinition enemyDef = game.registry.bodyTypes.get("Human");
             Body enemy = new Body("Enemy", new AreaLocation(area, x, y), 
                     enemyDef);

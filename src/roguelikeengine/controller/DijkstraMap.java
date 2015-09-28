@@ -27,7 +27,7 @@ public class DijkstraMap {
         
         public AreaMap(LocalArea l) {
             area = l;
-            cells = new int[l.getxDist()][l.getyDist()];
+            cells = new int[l.getWidth()][l.getHeight()];
             clean();
             nextCellCounts = new LinkedList<Integer>();
             nextCells = new LinkedList<>();

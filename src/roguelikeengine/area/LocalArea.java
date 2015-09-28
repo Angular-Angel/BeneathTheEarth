@@ -32,9 +32,17 @@ public class LocalArea {
      * @param terrain the terrain to set.
      */
     public void setTerrain(int x, int y, TerrainDefinition terrain) {
-        if (x >= 0 && x < getxDist() && y >= 0 && y < getyDist())
+        if (x >= 0 && x < getWidth() && y >= 0 && y < getHeight())
         this.terrain[x][y] = terrain;
         else System.out.println(x + ", " + y);
+    }
+    
+    public void fill(TerrainDefinition t) {
+        for (int x = 0; x < xDist; x++) {
+            for (int y = 0; y < yDist; y++) {
+                setTerrain(x, y, t);
+            }
+        }
     }
     
     /**
@@ -44,7 +52,7 @@ public class LocalArea {
      * @return the terrain at x and y.
      */
     public TerrainDefinition getTerrain(int x, int y) {
-        if (x >= 0 && x < getxDist() && y >= 0 && y < getyDist())
+        if (x >= 0 && x < getWidth() && y >= 0 && y < getHeight())
         return terrain[x][y];
         else return null;
     }
@@ -77,32 +85,59 @@ public class LocalArea {
         entities = new ArrayList<>();
         debugName = name;
     }
+    
+    
+//    /**
+//     * This function isn't finished yet, don't use it!
+//     * @param area 
+//     */
+//    private LocalArea(LocalArea area) {
+//        this.xDist = area.xDist;
+//        this.yDist = area.yDist;
+//        this.terrain = new TerrainDefinition[xDist][yDist];
+//        for (int y = 0; y < yDist; y++) {
+//            for (int x = 0; x < xDist; x++) {
+//                this.terrain[x][y] = area.getTerrain(x, y);
+//            }
+//        }
+//        borders = new ArrayList<>();
+//        entities = new ArrayList<>();
+//        debugName = "" + area.getDebugName();
+//        
+//        for (BorderArea b : area.borders) {
+//            BorderArea b2 = new BorderArea(b.area, b.x, b.y, b.rotation, b.xMirrored, b.yMirrored);
+//            borders.add(b2);
+//        }
+//        for (Entity e : area.entities) {
+//            addEntity(e);
+//        }
+//    }
 
     /**
      * @return the xDist
      */
-    public int getxDist() {
+    public int getWidth() {
         return xDist;
     }
 
     /**
      * @param xDist the xDist to set
      */
-    public void setxDist(int xDist) {
+    public void setWidth(int xDist) {
         this.xDist = xDist;
     }
 
     /**
      * @return the number of rows
      */
-    public int getyDist() {
+    public int getHeight() {
         return yDist;
     }
 
     /**
      * @param yDist the number of rows
      */
-    public void setyDist(int yDist) {
+    public void setHeight(int yDist) {
         this.yDist = yDist;
     }
     
@@ -224,44 +259,44 @@ public class LocalArea {
                 switch (b.getRotation()) {
                     case degree0:
                         if (b.isXMirrored())
-                        getx = b.getArea().getxDist() - 1 - (x - b.getX());
+                        getx = b.getArea().getWidth() - 1 - (x - b.getX());
                         else
                         getx = x - b.getX();
                         if (b.isYMirrored())
-                        gety = b.getArea().getyDist() - 1 - (y - b.getY());
+                        gety = b.getArea().getHeight() - 1 - (y - b.getY());
                         else
                         gety = y - b.getY();
                         area = b.getArea();
                         break;
                     case degree90:
                         if (b.isXMirrored())
-                        getx = b.getArea().getyDist() - 1 - (y - b.getY());
+                        getx = b.getArea().getHeight() - 1 - (y - b.getY());
                         else
                         getx = y - b.getY();
                         if (b.isYMirrored())
                         gety = x - b.getX();
                         else
-                        gety = b.getArea().getxDist() - 1 - (x - b.getX());
+                        gety = b.getArea().getWidth() - 1 - (x - b.getX());
                         area = b.getArea();
                         break;
                     case degree180:
                         if (b.isXMirrored())
                         getx = x - b.getX();
                         else
-                        getx = b.getArea().getxDist() - 1 - (x - b.getX());
+                        getx = b.getArea().getWidth() - 1 - (x - b.getX());
                         if (b.isYMirrored())
                         gety = y - b.getY();
                         else
-                        gety = b.getArea().getyDist() - 1 - (y - b.getY());
+                        gety = b.getArea().getHeight() - 1 - (y - b.getY());
                         area = b.getArea();
                         break;
                     case degree270:
                         if (b.isXMirrored())
                         getx = y - b.getY();
                         else
-                        getx = b.getArea().getyDist() - 1 - (y - b.getY());
+                        getx = b.getArea().getHeight() - 1 - (y - b.getY());
                         if (b.isYMirrored())
-                        gety = b.getArea().getxDist() - 1 - (x - b.getX());
+                        gety = b.getArea().getWidth() - 1 - (x - b.getX());
                         else
                         gety = x - b.getX();
                         area = b.getArea();
@@ -358,41 +393,41 @@ public class LocalArea {
             switch (getRotation()) {
                 case degree0:
                     if (isXMirrored())
-                    getx = getArea().getxDist() - 1 - (x - getX());
+                    getx = getArea().getWidth() - 1 - (x - getX());
                     else
                     getx = x - getX();
                     if (isYMirrored())
-                    gety = getArea().getyDist() - 1 - (y - getY());
+                    gety = getArea().getHeight() - 1 - (y - getY());
                     else
                     gety = y - getY();
                     break;
                 case degree90:
                     if (isXMirrored())
-                    getx = getArea().getyDist() - 1 - (y - getY());
+                    getx = getArea().getHeight() - 1 - (y - getY());
                     else
                     getx = y - getY();
                     if (isYMirrored())
                     gety = x - getX();
                     else
-                    gety = getArea().getxDist() - 1 - (x - getX());
+                    gety = getArea().getWidth() - 1 - (x - getX());
                     break;
                 case degree180:
                     if (isXMirrored())
                     getx = x - getX();
                     else
-                    getx = getArea().getxDist() - 1 - (x - getX());
+                    getx = getArea().getWidth() - 1 - (x - getX());
                     if (isYMirrored())
                     gety = y - getY();
                     else
-                    gety = getArea().getyDist() - 1 - (y - getY());
+                    gety = getArea().getHeight() - 1 - (y - getY());
                     break;
                 case degree270:
                     if (isXMirrored())
                     getx = y - getY();
                     else
-                    getx = getArea().getyDist() - 1 - (y - getY());
+                    getx = getArea().getHeight() - 1 - (y - getY());
                     if (isYMirrored())
-                    gety = getArea().getxDist() - 1 - (x - getX());
+                    gety = getArea().getWidth() - 1 - (x - getX());
                     else
                     gety = x - getX();
                     break;
