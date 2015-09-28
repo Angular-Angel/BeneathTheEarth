@@ -34,9 +34,7 @@ public class CaveScript implements MapScript {
 
         RandomFillMap();
         
-        MakeCaverns();
-        MakeCaverns();
-        MakeCaverns();
+        for (int i = 0; i < 25; i++) MakeCaverns();
         
         return map;
     }
@@ -79,7 +77,7 @@ public class CaveScript implements MapScript {
         }
         else
         {
-            if(numWalls>=5)
+            if(numWalls>=5 || GetAdjacentWalls(x,y,2,2) <= 1)
             {
                 return wall;
             }

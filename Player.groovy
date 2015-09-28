@@ -124,8 +124,6 @@ class Player extends Controller {
                 break;
             case 'i': viewInventory();
                 break;
-            case 's': saySpell();
-                break;
             case '@': 
             default: break;
         }
