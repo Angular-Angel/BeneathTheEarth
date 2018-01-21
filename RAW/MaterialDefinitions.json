@@ -1,0 +1,10 @@
+[
+	
+        {
+		"name" : "Granite",
+		"symbol" : "G",
+		"color" : [255, 255, 255],
+                "script" : "RAW/TerrainDamageScript.groovy",
+		"stats" : []
+	}
+]

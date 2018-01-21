@@ -6,9 +6,7 @@ package roguelikeengine.largeobjects;
 
 import roguelikeengine.item.Item;
 import java.util.HashMap;
-import roguelikeengine.item.*;
 import roguelikeengine.stat.Stat;
-import roguelikeengine.stat.StatContainer;
 import roguelikeengine.stat.Trait;
 
 /**

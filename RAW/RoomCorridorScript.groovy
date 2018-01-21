@@ -4,6 +4,8 @@ import roguelikeengine.*;
 import roguelikeengine.area.*;
 import roguelikeengine.largeobjects.*;
 import roguelikeengine.controller.*;
+import generation.*
+import static beneaththeearth.BeneathTheEarth.game;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,18 +17,16 @@ import roguelikeengine.controller.*;
  *
  * @author Greg
  */
-class RoomCorridorScript implements MapScript {
+class RoomCorridorScript implements GenerationProcedure<LocalArea> {
     
     TerrainDefinition floor, wall, stairs;
-    Game game;
     ArrayList<LocalArea> areas;
     
-    public LocalArea generateArea(Game game, String args) {
+    public LocalArea generate() {
         floor = game.registry.terrainTypes.get("Stone Floor");
         wall = game.registry.terrainTypes.get("Stone Wall");
         stairs = game.registry.terrainTypes.get("Stone Stairs");
         areas = new ArrayList<>();
-        this.game = game;
         
         LocalArea ret = makeRoom(10, 10);
         
@@ -46,6 +46,10 @@ class RoomCorridorScript implements MapScript {
         }
         
         return ret;
+    }
+    
+    public LocalArea generate(Object o) {
+        throw new UnsupportedOperationException();
     }
     
     private LocalArea makeRoom(int width, int height) {
@@ -229,6 +233,14 @@ class RoomCorridorScript implements MapScript {
             area.addEntity(enemy);
 //            game.clock.addActor(enemy);
         }
+    }
+    
+    public LocalArea modify(LocalArea t) {
+        throw new UnsupportedOperationException();
+    }
+    
+    public boolean isApplicable(LocalArea t) {
+        throw new UnsupportedOperationException();
     }
 	
 }

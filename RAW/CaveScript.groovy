@@ -8,6 +8,8 @@ import roguelikeengine.largeobjects.*;
 import roguelikeengine.controller.*;
 import java.util.ArrayList;
 import java.util.Random;
+import generation.*;
+import static beneaththeearth.BeneathTheEarth.game;
 
 /**
  *
@@ -17,7 +19,7 @@ import java.util.Random;
 
 
 
-public class CaveScript implements MapScript {
+public class CaveScript implements GenerationProcedure<LocalArea> {
     Random rand = new Random();
 
     public LocalArea map;
@@ -25,7 +27,7 @@ public class CaveScript implements MapScript {
     public int PercentAreWalls;
     public TerrainDefinition floor, wall;
 
-    public LocalArea generateArea(Game game, String args) {
+    public LocalArea generate() {
         floor = game.registry.terrainTypes.get("Stone Floor");
         wall = game.registry.terrainTypes.get("Stone Wall");
         PercentAreWalls = 40;
@@ -34,9 +36,15 @@ public class CaveScript implements MapScript {
 
         RandomFillMap();
         
-        for (int i = 0; i < 25; i++) MakeCaverns();
+        for (int i = 0; i < 8; i++) MakeCaverns();
+        
+        PrintMap();
         
         return map;
+    }
+    
+    public LocalArea generate(Object o) {
+        throw new UnsupportedOperationException();
     }
 
     public void MakeCaverns()
@@ -69,7 +77,7 @@ public class CaveScript implements MapScript {
             {
                 return wall;
             }
-            if(numWalls<2)
+            if(numWalls<3)
             {
                 return floor;
             }
@@ -147,13 +155,13 @@ public class CaveScript implements MapScript {
 
     public void PrintMap()
     {
-            System.out.println(MapToString());
+        System.out.println(MapToString());
     }
 
     String MapToString()
     {
-        String returnString = "Width:" + MapWidth + "\tHeight:" +
-                              MapHeight + "\t% Walls:" + PercentAreWalls;
+        String returnString = "Width:" + map.getWidth() + "\tHeight:" +
+                              map.getHeight() + "\t% Walls:" + PercentAreWalls + "\n";
 
         for(int row=0; row < map.getHeight(); row++ ) {
             for(int column = 0; column < map.getWidth(); column++ )
@@ -220,6 +228,14 @@ public class CaveScript implements MapScript {
     
     public void cellularAutomata() {
         
+    }
+    
+    public LocalArea modify(LocalArea t) {
+        throw new UnsupportedOperationException();
+    }
+    
+    public boolean isApplicable(LocalArea t) {
+        throw new UnsupportedOperationException();
     }
     
 }

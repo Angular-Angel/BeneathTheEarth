@@ -14,7 +14,7 @@
 		"adjective" : "Wand",
 		"symbol" : "/",
 		"color" : [255, 255, 51],
-                "script" : "WandScript.groovy",
+                "script" : "RAW/WandScript.groovy",
                 "stats" : [],
 		"attacks" : []
                 

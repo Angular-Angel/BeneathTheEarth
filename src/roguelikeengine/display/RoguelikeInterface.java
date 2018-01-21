@@ -191,10 +191,10 @@ public class RoguelikeInterface extends JPanel {
     public synchronized char getKey() {
         while (keys.isEmpty())
             try {
-            wait(10);
-        } catch (InterruptedException ex) {
-            System.out.println(ex.getMessage());
-        }
+                wait(10);
+            } catch (InterruptedException ex) {
+                System.out.println(ex.getMessage());
+            }
         char c = keys.get(0);
         keys.remove(0);
         return c;

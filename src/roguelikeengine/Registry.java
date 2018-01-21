@@ -30,6 +30,7 @@ import org.codehaus.groovy.control.CompilationFailedException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import roguelikeengine.area.TerrainDefinition;
 import roguelikeengine.display.DisplayChar;
 import roguelikeengine.item.DamageScript;
@@ -135,7 +136,7 @@ public class Registry {
                     items.put(names[0], itemdef);
                 }
  
-	} catch (Exception e) {
+	} catch (IOException | ParseException e) {
 		Logger.getLogger(Registry.class.getName()).log(Level.SEVERE, null, e);
 	} 
     }
@@ -244,7 +245,7 @@ public class Registry {
                     bodyTypes.put(name, bodydef);
                 }
  
-	} catch (Exception e) {
+	} catch (IOException | ParseException e) {
 		Logger.getLogger(Registry.class.getName()).log(Level.SEVERE, null, e);
 	} 
     }
@@ -278,7 +279,7 @@ public class Registry {
                     terrainTypes.put(name, terrain);
                 }
  
-	} catch (Exception e) {
+	} catch (IOException | ParseException e) {
 		Logger.getLogger(Registry.class.getName()).log(Level.SEVERE, null, e);
 	} 
     }

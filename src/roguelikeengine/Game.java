@@ -19,11 +19,13 @@ public abstract class Game {
     public RoguelikeInterface display;
     public Registry registry;
     public Clock clock;
+    public static Game game;
     
     public Game() {
         random = new Random();
         registry = new Registry();
         clock = new Clock();
+        game = this;
     }
     
     public abstract void start();

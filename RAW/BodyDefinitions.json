@@ -3,7 +3,7 @@
 		"name" : "Human",
 		"symbol" : "@",
 		"color" : [0, 0, 255],
-                "script" : "HumanBiologyScript.groovy",
+                "script" : "RAW/HumanBiologyScript.groovy",
 		"stats" : [["Sight Range", 60], ["Speed", 120], ["Strength", 10], ["Dexterity", 10], ["Constitution", 10], 
                            ["Intelligence", 10], ["Perception", 10], 
                            ["Will", 10], ["Luck", 10], ["Hit Points", "@Strength@ * 2"],
