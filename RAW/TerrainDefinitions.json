@@ -10,14 +10,14 @@
         "Name" : "Stone Floor",
         "symbol" : ".",
         "color" : [255, 255, 255],
-        "Stats" : [["Passable"], ["Transparent"]],
+        "Stats" : [["Passable", 1], ["Transparent", 1]],
         "Material" : "Granite"
     },
     {
         "Name" : "Stone Stairs",
         "symbol" : "=",
         "color" : [255, 255, 255],
-        "Stats" : [["Passable"], ["Transparent"]],
+        "Stats" : [["Passable", 1], ["Transparent", 1]],
         "Material" : "Granite"
     }
 ]

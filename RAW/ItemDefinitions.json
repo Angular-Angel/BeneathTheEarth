@@ -5,8 +5,8 @@
 		"adjective" : "Longsword",
 		"symbol" : "\\",
 		"color" : [192, 192, 192],
-		"stats" : [["Weight", 3], ["Two Handed"]],
-		"attacks" : [["Slash", [ ["Attack Bonus", 0], ["Damage", 1, 8]]]]
+		"stats" : [["Weight", 3], ["Two Handed", 1]],
+		"attacks" : [["Slash", [ ["Attack Bonus", 0], ["Damage", 8]]]]
 	},
         {
 		"singular" : "Wand",

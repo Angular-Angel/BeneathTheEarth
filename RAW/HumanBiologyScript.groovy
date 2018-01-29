@@ -8,7 +8,7 @@ import roguelikeengine.stat.*;
 class HumanBiologyScript implements BiologyScript {
     
     public boolean isAlive(Body b) {
-        if (b.getScore("Hit Points") > 0)
+        if (b.stats.getScore("Hit Points") > 0)
         return true;
         else return false;
     }

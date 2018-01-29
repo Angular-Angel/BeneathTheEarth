@@ -2,7 +2,7 @@
 import roguelikeengine.item.*;
 import java.util.Random;
 import roguelikeengine.largeobjects.*;
-import roguelikeengine.stat.*;
+import stat.*;
 
 
 class BrittleDamageScript implements DamageScript {

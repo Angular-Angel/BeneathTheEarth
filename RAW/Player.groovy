@@ -8,7 +8,7 @@ import roguelikeengine.controller.*;
 import roguelikeengine.display.*;
 import roguelikeengine.item.*;
 import roguelikeengine.largeobjects.*;
-import roguelikeengine.stat.*;
+import stat.*;
 import roguelikeengine.*;
 
 /**
@@ -35,7 +35,7 @@ class Player extends Controller {
     public void view() {
         try {
             //this variable is used  lot, so let's copy it to a local.
-            int sightRange = (int) getBody().getDef().getScore("Sight Range");
+            int sightRange = (int) getBody().stats.getScore("Sight Range");
             //these too.
             int x = getBody().getLocation().getX();
             int y = getBody().getLocation().getY();

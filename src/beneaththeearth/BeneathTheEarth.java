@@ -6,17 +6,17 @@
 
 package beneaththeearth;
 
-import generation.GenerationProcedure;
-import roguelikeengine.*;
+import roguelikeengine.display.RoguelikeInterface;
+import roguelikeengine.display.DisplayChar;
+import roguelikeengine.Game;
 import roguelikeengine.largeobjects.Body;
-import roguelikeengine.display.*;
-import java.awt.Color;
-import java.awt.Font;
-import java.io.File;
 import roguelikeengine.area.AreaLocation;
 import roguelikeengine.area.LocalArea;
 import roguelikeengine.controller.Controller;
-import roguelikeengine.controller.DijkstraMap;
+import generation.GenerationProcedure;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.File;
 
 /**
  *
