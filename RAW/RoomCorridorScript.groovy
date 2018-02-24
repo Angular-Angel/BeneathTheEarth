@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import roguelikeengine.*;
 import roguelikeengine.area.*;
+import roguelikeengine.item.*;
 import roguelikeengine.largeobjects.*;
 import roguelikeengine.controller.*;
 import generation.*
@@ -43,6 +44,7 @@ class RoomCorridorScript implements GenerationProcedure<LocalArea> {
         for (int i = 1; i < 100 && i < areas.size(); i++) {
             addCorridors(areas.get(i), game.random.nextInt(5));
             populateRoom(areas.get(i));
+            supplyRoom(areas.get(i));
         }
         
         return ret;
@@ -221,13 +223,25 @@ class RoomCorridorScript implements GenerationProcedure<LocalArea> {
         
     }
     
-    private void populateRoom(LocalArea area) {
+    private void supplyRoom(LocalArea area) {
+        ItemDefinition itemDef = game.registry.items.get("Longsword");
         int size = area.getWidth() * area.getHeight();
         size /= 9;
         size = game.random.nextInt(size);
         for (int i = 0; i < size; i++) {
-        int x = game.random.nextInt(area.getWidth()), y = game.random.nextInt(area.getHeight());
-            BodyDefinition enemyDef = game.registry.bodyTypes.get("Human");
+            int x = 1 + game.random.nextInt(area.getWidth() - 2), y = 1 + game.random.nextInt(area.getHeight() - 2);
+            SimpleItem item =  new SimpleItem(itemDef);
+            area.addItem(item, x, y);
+        }
+    }
+    
+    private void populateRoom(LocalArea area) {
+        BodyDefinition enemyDef = game.registry.bodyTypes.get("Human");
+        int size = area.getWidth() * area.getHeight();
+        size /= 9;
+        size = game.random.nextInt(size);
+        for (int i = 0; i < size; i++) {
+            int x = 1 + game.random.nextInt(area.getWidth() - 2), y = 1 + game.random.nextInt(area.getHeight() - 2);
             Body enemy = new Body("Enemy", new AreaLocation(area, x, y), 
                     enemyDef);
             area.addEntity(enemy);

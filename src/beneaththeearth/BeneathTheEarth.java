@@ -17,6 +17,7 @@ import generation.GenerationProcedure;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
+import roguelikeengine.Player;
 
 /**
  *
@@ -50,7 +51,7 @@ public class BeneathTheEarth extends Game {
             LocalArea start;
             Body body;
             Controller player;
-            switch (display.getKey()) {
+            switch (display.getKeyChar()) {
                 case 'q': System.exit(0); return;
                 case '1': 
                     clock.clearActors();
@@ -59,7 +60,7 @@ public class BeneathTheEarth extends Game {
                     body = new Body("Player", new AreaLocation(start, 5, 5), 
                            registry.bodyTypes.get("Human"));
                     start.addEntity(body);
-                    player = (Controller) registry.readGroovyScript(new File("RAW/Player.groovy"));
+                    player = new Player(body, game);
                     player.setBody(body);
                     player.setGame(this);
                     clock.addActor(player);
@@ -72,7 +73,7 @@ public class BeneathTheEarth extends Game {
                     body = new Body("Player", new AreaLocation(start, 5, 5), 
                            registry.bodyTypes.get("Human"));
                     start.addEntity(body);
-                    player = (Controller) registry.readGroovyScript(new File("RAW/Player.groovy"));
+                    player = new Player(body, game);
                     player.setBody(body);
                     player.setGame(this);
                     clock.addActor(player);
