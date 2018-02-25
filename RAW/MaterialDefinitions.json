@@ -4,7 +4,7 @@
 		"name" : "Granite",
 		"symbol" : "G",
 		"color" : [255, 255, 255],
-                "script" : "RAW/TerrainDamageScript.groovy",
+                "script" : "RAW/BrittleDamageScript.groovy",
 		"stats" : []
 	}
 ]
