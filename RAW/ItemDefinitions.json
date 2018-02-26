@@ -6,7 +6,7 @@
 		"symbol" : "\\",
 		"color" : [192, 192, 192],
 		"stats" : [["Weight", 3], ["Two Handed", 1]],
-		"attacks" : [["Slash", [ ["Attack Bonus", 0], ["Damage", 8]]]]
+		"attacks" : [["Slash", [ ["Attack Bonus", 0], ["Damage", 50]]]]
 	},
         {
 		"singular" : "Wand",
