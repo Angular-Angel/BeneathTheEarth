@@ -8,9 +8,7 @@ import roguelikeengine.stat.*;
 class HumanBiologyScript implements BiologyScript {
     
     public boolean isAlive(Body b) {
-        if (b.stats.getScore("HP") > 0)
-        return true;
-        else return false;
+        return (b.stats.getScore("HP") > 0);
     }
     
     public void step(Body b) {

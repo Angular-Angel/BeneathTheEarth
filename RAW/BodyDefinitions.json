@@ -11,7 +11,7 @@
                            ["Intellect", 100], ["Acumen", 100], 
                            ["Creativity", 100], ["Perception", 100], 
                            ["Spirit", 100], ["Luck", 100], 
-                           ["HP", "[Vitality] * 1 + [Strength] * 0.5 + [Endurance] * 0.5"]],
+                           ["Max HP", "[Vitality] * 1 + [Strength] * 0.5 + [Endurance] * 0.5"]],
 		"bodyparts" : []
 	}
 ]
