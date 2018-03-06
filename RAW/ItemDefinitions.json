@@ -6,7 +6,7 @@
 		"symbol" : "\\",
 		"color" : [192, 192, 192],
 		"stats" : [["Weight", 3], ["Two Handed", 1]],
-		"attacks" : [["Slash", [ ["Attack Bonus", 0], ["Damage", 50]]]]
+		"attacks" : [["Slash", [["Attack Bonus", 0], ["Damage", 50]]]]
 	},
         {
 		"singular" : "Wand",
@@ -18,5 +18,45 @@
                 "stats" : [],
 		"attacks" : []
                 
-        }
+        },
+	{
+		"singular" : "Heart",
+		"plural" : "Hearts",
+		"adjective" : "Heart",
+		"defmat" : "Muscle",
+		"symbol" : "*",
+		"color" : [200, 0, 0],
+		"stats" : [],
+		"attacks" : []
+	},
+        {
+                "singular" : "Brain",
+		"plural" : "Brains",
+		"adjective" : "Brain",
+		"defmat" : "Brain",
+		"symbol" : "*",
+		"color" : [200, 0, 0],
+		"stats" : [],
+		"attacks" : []
+        },
+	{
+		"singular" : "Skull",
+		"plural" : "Skulls",
+		"adjective" : "Skull",
+		"defmat" : "Bone",
+		"symbol" : "@",
+		"color" : [255, 255, 255],
+		"stats" : [],
+		"attacks" : [["Smack", [["Attack Bonus", 0], ["Damage", 25]]]]
+	},
+	{
+		"singular" : "Hand",
+		"plural" : "Hands",
+		"adjective" : "Hand",
+		"defmat" : "Muscle",
+		"symbol" : "^",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : [["Punch", [["Attack Bonus", 0], ["Damage", 25]]]]
+	}
 ]

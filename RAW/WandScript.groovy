@@ -5,7 +5,7 @@ import roguelikeengine.display.*;
 
 class WandScript implements ItemScript {
 
-	public void run(RoguelikeInterface display, Item i, Body b) {
+	public void run(RoguelikeInterface display, Item i, Creature creature) {
         }
 
 }
