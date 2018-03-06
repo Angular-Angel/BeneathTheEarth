@@ -9,7 +9,7 @@ package beneaththeearth;
 import roguelikeengine.display.RoguelikeInterface;
 import roguelikeengine.display.DisplayChar;
 import roguelikeengine.Game;
-import roguelikeengine.largeobjects.Body;
+import roguelikeengine.largeobjects.Creature;
 import roguelikeengine.area.AreaLocation;
 import roguelikeengine.area.LocalArea;
 import roguelikeengine.controller.Controller;
@@ -18,6 +18,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
 import roguelikeengine.Player;
+import roguelikeengine.area.Area;
 
 /**
  *
@@ -47,39 +48,35 @@ public class BeneathTheEarth extends Game {
             display.setAll(new DisplayChar(' ', Color.black));
             display.writeString(5, 8, "1 for Rooms and Corridors, 2 for caverns, and q to go back.");
             display.repaint();
-            GenerationProcedure<LocalArea> script;
+            GenerationProcedure<Area> script = null;
+            Area area;
             LocalArea start;
-            Body body;
+            Creature body;
             Controller player;
+            clock.clearActors();
             switch (display.getKeyChar()) {
                 case 'q': System.exit(0); return;
                 case '1': 
-                    clock.clearActors();
-                    script = (GenerationProcedure<LocalArea>) registry.readGroovyScript(new File("RAW/RoomCorridorScript.groovy"));
-                    start = script.generate();
-                    body = new Body("Player", new AreaLocation(start, 5, 5), 
-                           registry.bodyTypes.get("Human"));
-                    start.addEntity(body);
-                    player = new Player(body, game);
-                    player.setBody(body);
-                    player.setGame(this);
-                    clock.addActor(player);
-                    clock.play();
+                    script = (GenerationProcedure<Area>) registry.readGroovyScript(new File("RAW/RoomCorridorScript.groovy"));
                     break;
                 case '2':
                     clock.clearActors();
-                    script = (GenerationProcedure<LocalArea>) registry.readGroovyScript(new File("RAW/CaveScript.groovy"));
-                    start = script.generate();
-                    body = new Body("Player", new AreaLocation(start, 5, 5), 
-                           registry.bodyTypes.get("Human"));
-                    start.addEntity(body);
-                    player = new Player(body, game);
-                    player.setBody(body);
-                    player.setGame(this);
-                    clock.addActor(player);
-                    clock.play();
+                    script = (GenerationProcedure<Area>) registry.readGroovyScript(new File("RAW/CaveScript.groovy"));
                     break;
             }
+            
+            area = script.generate();
+            start = area.start;
+            body = new Creature("Player", new AreaLocation(start, 5, 5), 
+                   registry.bodyTypes.get("Human"));
+            start.addEntity(body);
+            player = new Player(body, game);
+            player.setBody(body);
+            player.setGame(this);
+            clock.addActor(player);
+            for (Controller c : area.controllers) 
+                clock.addActor(c);
+            clock.play();
         }
         
     }

@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import roguelikeengine.*;
 import roguelikeengine.area.*;
+import roguelikeengine.controller.*;
 import roguelikeengine.item.*;
 import roguelikeengine.largeobjects.*;
 import roguelikeengine.controller.*;
@@ -18,39 +19,40 @@ import static beneaththeearth.BeneathTheEarth.game;
  *
  * @author Greg
  */
-class RoomCorridorScript implements GenerationProcedure<LocalArea> {
+class RoomCorridorScript implements GenerationProcedure<Area> {
     
     TerrainDefinition floor, wall, stairs;
-    ArrayList<LocalArea> areas;
+    Area area;
     
-    public LocalArea generate() {
-        floor = game.registry.terrainTypes.get("Stone Floor");
+    public Area generate() {
         wall = game.registry.terrainTypes.get("Stone Wall");
+        floor = game.registry.terrainTypes.get("Stone Floor");
         stairs = game.registry.terrainTypes.get("Stone Stairs");
-        areas = new ArrayList<>();
         
-        LocalArea ret = makeRoom(10, 10);
+        area = new Area();
         
-        areas.add(ret);
+        area.start = makeRoom(10, 10);
         
-        areas.add(makeRoom(game.random.nextInt(7) +4, game.random.nextInt(7) +4));
-        areas.add(makeRoom(game.random.nextInt(7) +4, game.random.nextInt(7) +4));
-        areas.add(makeRoom(game.random.nextInt(7) +4, game.random.nextInt(7) +4));
+        area.add(area.start);
         
-        ret.setTerrain(3,3, stairs);
+        area.add(makeRoom(game.random.nextInt(7) +4, game.random.nextInt(7) +4));
+        area.add(makeRoom(game.random.nextInt(7) +4, game.random.nextInt(7) +4));
+        area.add(makeRoom(game.random.nextInt(7) +4, game.random.nextInt(7) +4));
         
-        addCorridors(ret, 4);
+        area.start.setTerrain(3,3, stairs);
         
-        for (int i = 1; i < 100 && i < areas.size(); i++) {
-            addCorridors(areas.get(i), game.random.nextInt(5));
-            populateRoom(areas.get(i));
-            supplyRoom(areas.get(i));
+        addCorridors(area.start, 4);
+        
+        for (int i = 1; i < 100 && i < area.localAreas.size(); i++) {
+            addCorridors(area.localAreas.get(i), game.random.nextInt(5));
+            populateRoom(area.localAreas.get(i));
+            supplyRoom(area.localAreas.get(i));
         }
         
-        return ret;
+        return area;
     }
     
-    public LocalArea generate(Object o) {
+    public Area generate(Object o) {
         throw new UnsupportedOperationException();
     }
     
@@ -92,15 +94,15 @@ class RoomCorridorScript implements GenerationProcedure<LocalArea> {
                     switch(game.random.nextInt(2)){
                         case 0: 
                             room = makeRoom(game.random.nextInt(7) +4, game.random.nextInt(7) +4);
-                            areas.add(room);
+                            area.add(room);
                             break;
-                        case 1: room = areas.get(game.random.nextInt(areas.size()));
+                        case 1: room = area.localAreas.get(game.random.nextInt(area.localAreas.size()));
                     }
                     x = game.random.nextInt(room.getWidth()-2)+1;
                     if (room.getTerrain(x, room.getHeight() -1) == floor ||
                         room.getTerrain(x-1, room.getHeight() -1) == floor ||
                         room.getTerrain(x+1, room.getHeight() -1) == floor){
-                        areas.add(corridor);
+                        area.add(corridor);
                         break;
                     }
                 
@@ -127,15 +129,15 @@ class RoomCorridorScript implements GenerationProcedure<LocalArea> {
                     switch(game.random.nextInt(2)){
                         case 0: 
                             room = makeRoom(game.random.nextInt(7) +4, game.random.nextInt(7) +4);
-                            areas.add(room);
+                            area.add(room);
                             break;
-                        case 1: room = areas.get(game.random.nextInt(areas.size()));
+                        case 1: room = area.localAreas.get(game.random.nextInt(area.localAreas.size()));
                     }
                     y = game.random.nextInt(room.getHeight()-2)+1;
                     if (room.getTerrain(0, y) == floor ||
                         room.getTerrain(0, y -1) == floor ||
                         room.getTerrain(0, y +1) == floor){
-                        areas.add(corridor);
+                        area.add(corridor);
                         break;
                     }
                     
@@ -162,16 +164,16 @@ class RoomCorridorScript implements GenerationProcedure<LocalArea> {
                     switch(game.random.nextInt(2)){
                         case 0: 
                             room = makeRoom(game.random.nextInt(7) +4, game.random.nextInt(7) +4);
-                            areas.add(room);
+                            area.add(room);
                             break;
-                        case 1: room = areas.get(game.random.nextInt(areas.size()));
+                        case 1: room = area.localAreas.get(game.random.nextInt(area.localAreas.size()));
                     }
                     
                     x = game.random.nextInt(room.getWidth()-2)+1;
                     if (room.getTerrain(x, 0) == floor ||
                         room.getTerrain(x -1, 0) == floor ||
                         room.getTerrain(x +1, 0) == floor){
-                        areas.add(corridor);
+                        area.add(corridor);
                         break;
                     }
                     
@@ -198,15 +200,15 @@ class RoomCorridorScript implements GenerationProcedure<LocalArea> {
                     switch(game.random.nextInt(2)){
                         case 0: 
                             room = makeRoom(game.random.nextInt(7) +4, game.random.nextInt(7) +4);
-                            areas.add(room);
+                            area.add(room);
                             break;
-                        case 1: room = areas.get(game.random.nextInt(areas.size()));
+                        case 1: room = area.localAreas.get(game.random.nextInt(area.localAreas.size()));
                     }
                     y = game.random.nextInt(room.getHeight()-2)+1;
                     if (room.getTerrain(room.getWidth() -1, y) == floor ||
                         room.getTerrain(room.getWidth() -1, y +1) == floor ||
                         room.getTerrain(room.getWidth() -1, y -1) == floor){
-                        areas.add(corridor);
+                        area.add(corridor);
                         break;
                     }
                     
@@ -235,25 +237,25 @@ class RoomCorridorScript implements GenerationProcedure<LocalArea> {
         }
     }
     
-    private void populateRoom(LocalArea area) {
+    private void populateRoom(LocalArea localArea) {
         BodyDefinition enemyDef = game.registry.bodyTypes.get("Human");
-        int size = area.getWidth() * area.getHeight();
+        int size = localArea.getWidth() * localArea.getHeight();
         size /= 9;
         size = game.random.nextInt(size);
         for (int i = 0; i < size; i++) {
-            int x = 1 + game.random.nextInt(area.getWidth() - 2), y = 1 + game.random.nextInt(area.getHeight() - 2);
-            Body enemy = new Body("Enemy", new AreaLocation(area, x, y), 
-                    enemyDef);
-            area.addEntity(enemy);
-//            game.clock.addActor(enemy);
+            int x = 1 + game.random.nextInt(localArea.getWidth() - 2), y = 1 + game.random.nextInt(localArea.getHeight() - 2);
+            Creature enemy = new Creature("Enemy", new AreaLocation(localArea, x, y), enemyDef);
+            BasicAI basicAI = new BasicAI(enemy);
+            area.add(basicAI);
+            localArea.addEntity(enemy);
         }
     }
     
-    public LocalArea modify(LocalArea t) {
+    public Area modify(Area t) {
         throw new UnsupportedOperationException();
     }
     
-    public boolean isApplicable(LocalArea t) {
+    public boolean isApplicable(Area t) {
         throw new UnsupportedOperationException();
     }
 	
