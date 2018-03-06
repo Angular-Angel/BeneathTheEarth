@@ -19,20 +19,25 @@ import static beneaththeearth.BeneathTheEarth.game;
 
 
 
-public class CaveScript implements GenerationProcedure<LocalArea> {
+public class CaveScript implements GenerationProcedure<Area> {
     Random rand = new Random();
 
     public LocalArea map;
 
     public int PercentAreWalls;
     public TerrainDefinition floor, wall;
+    public Area area;
 
-    public LocalArea generate() {
+    public Area generate() {
         floor = game.registry.terrainTypes.get("Stone Floor");
         wall = game.registry.terrainTypes.get("Stone Wall");
         PercentAreWalls = 40;
+        
+        area = new Area();
 
         map = new LocalArea(40, 40, floor, "Cavern");
+        area.add(map);
+        area.start = map;
 
         RandomFillMap();
         
@@ -40,10 +45,10 @@ public class CaveScript implements GenerationProcedure<LocalArea> {
         
         //PrintMap();
         
-        return map;
+        return area;
     }
     
-    public LocalArea generate(Object o) {
+    public Area generate(Object o) {
         throw new UnsupportedOperationException();
     }
 
@@ -230,11 +235,11 @@ public class CaveScript implements GenerationProcedure<LocalArea> {
         
     }
     
-    public LocalArea modify(LocalArea t) {
+    public Area modify(Area t) {
         throw new UnsupportedOperationException();
     }
     
-    public boolean isApplicable(LocalArea t) {
+    public boolean isApplicable(Area t) {
         throw new UnsupportedOperationException();
     }
     
