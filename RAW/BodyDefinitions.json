@@ -2,7 +2,7 @@
 	{
 		"name" : "Human",
 		"symbol" : "@",
-		"color" : [0, 255, 255],
+		"color" : [255, 192, 128],
                 "script" : "RAW/HumanBiologyScript.groovy",
 		"stats" : [["Sight Range", 60], ["Speed", 120], 
                            ["Strength", 100], 
@@ -12,6 +12,6 @@
                            ["Creativity", 100], ["Perception", 100], 
                            ["Spirit", 100], ["Luck", 100], 
                            ["Max HP", "[Vitality] * 0.5 + [Strength] * 0.25 + [Endurance] * 0.25"]],
-		"bodyparts" : []
+		"bodytemplate" : "Human Body"
 	}
 ]

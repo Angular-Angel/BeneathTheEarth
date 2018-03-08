@@ -34,7 +34,7 @@
 		"plural" : "Brains",
 		"adjective" : "Brain",
 		"defmat" : "Brain",
-		"symbol" : "*",
+		"symbol" : "@",
 		"color" : [200, 0, 0],
 		"stats" : [],
 		"attacks" : []
@@ -58,5 +58,37 @@
 		"color" : [255, 192, 128],
 		"stats" : [],
 		"attacks" : [["Punch", [["Attack Bonus", 0], ["Damage", 25]]]]
-	}
+	},
+	{
+		"singular" : "Torso",
+		"plural" : "Torsos",
+		"adjective" : "Torso",
+		"defmat" : "Muscle",
+		"symbol" : "&",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : [],
+                "Components": ["Heart"]
+	},
+	{
+		"singular" : "Head",
+		"plural" : "Heads",
+		"adjective" : "Head",
+		"defmat" : "Muscle",
+		"symbol" : "@",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : [["Headbutt", [["Attack Bonus", 0], ["Damage", 15]]]],
+                "Components": ["Brain", "Skull"]
+	},
+        {
+                "singular" : "Body",
+		"plural" : "Bodies",
+		"adjective" : "Body",
+		"symbol" : "@",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : [["Punch", [["Attack Bonus", 0], ["Damage", 25]]]],
+                "Components": ["Torso", "Head"]
+        }
 ]
