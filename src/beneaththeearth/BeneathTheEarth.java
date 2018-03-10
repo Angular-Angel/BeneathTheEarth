@@ -17,7 +17,7 @@ import generation.GenerationProcedure;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
-import roguelikeengine.Player;
+import roguelikeengine.controller.Player;
 import roguelikeengine.area.Area;
 
 /**
