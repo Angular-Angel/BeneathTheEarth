@@ -12,6 +12,6 @@
                            ["Creativity", 100], ["Perception", 100], 
                            ["Spirit", 100], ["Luck", 100], 
                            ["Max HP", "[Vitality] * 0.5 + [Strength] * 0.25 + [Endurance] * 0.25"]],
-		"bodytemplate" : "Human Body"
+		"bodytemplate" : "Body"
 	}
 ]

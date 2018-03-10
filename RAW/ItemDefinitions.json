@@ -6,7 +6,7 @@
 		"symbol" : "\\",
 		"color" : [192, 192, 192],
 		"stats" : [["Weight", 3], ["Two Handed", 1]],
-		"attacks" : [["Slash", [["Attack Bonus", 0], ["Damage", 50]]]]
+		"attacks" : [["Slash", [["Attack Bonus", 0], ["Damage", 50]]], ["Stab", [["Attack Bonus", 1], ["Damage", 50]]]]
 	},
         {
 		"singular" : "Wand",
@@ -29,6 +29,17 @@
 		"stats" : [],
 		"attacks" : []
 	},
+	{
+		"singular" : "Torso",
+		"plural" : "Torsos",
+		"adjective" : "Torso",
+		"defmat" : "Muscle",
+		"symbol" : "&",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : [],
+                "components": ["Heart"]
+	},
         {
                 "singular" : "Brain",
 		"plural" : "Brains",
@@ -47,7 +58,18 @@
 		"symbol" : "@",
 		"color" : [255, 255, 255],
 		"stats" : [],
-		"attacks" : [["Smack", [["Attack Bonus", 0], ["Damage", 25]]]]
+		"attacks" : []
+	},
+	{
+		"singular" : "Head",
+		"plural" : "Heads",
+		"adjective" : "Head",
+		"defmat" : "Muscle",
+		"symbol" : "@",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : [["Headbutt", [["Attack Bonus", -3], ["Damage", 15]]]],
+                "components": ["Brain", "Skull"]
 	},
 	{
 		"singular" : "Hand",
@@ -60,26 +82,76 @@
 		"attacks" : [["Punch", [["Attack Bonus", 0], ["Damage", 25]]]]
 	},
 	{
-		"singular" : "Torso",
-		"plural" : "Torsos",
-		"adjective" : "Torso",
+		"singular" : "Upper Arm",
+		"plural" : "Upper Arms",
+		"adjective" : "Upper Arm",
+		"defmat" : "Muscle",
+		"symbol" : "-",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : []
+	},
+	{
+		"singular" : "Lower Arm",
+		"plural" : "Lower Arms",
+		"adjective" : "Lower Arm",
+		"defmat" : "Muscle",
+		"symbol" : "-",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : [["Elbow", [["Attack Bonus", -2], ["Damage", 20]]]]
+	},
+	{
+		"singular" : "Arm",
+		"plural" : "Arms",
+		"adjective" : "Arm",
 		"defmat" : "Muscle",
 		"symbol" : "&",
 		"color" : [255, 192, 128],
 		"stats" : [],
 		"attacks" : [],
-                "Components": ["Heart"]
+                "components": ["Upper Arm", "Lower Arm", "Hand"]
 	},
 	{
-		"singular" : "Head",
-		"plural" : "Heads",
-		"adjective" : "Head",
+		"singular" : "Foot",
+		"plural" : "Foots",
+		"adjective" : "Foot",
 		"defmat" : "Muscle",
-		"symbol" : "@",
+		"symbol" : "^",
 		"color" : [255, 192, 128],
 		"stats" : [],
-		"attacks" : [["Headbutt", [["Attack Bonus", 0], ["Damage", 15]]]],
-                "Components": ["Brain", "Skull"]
+		"attacks" : [["Kick", [["Attack Bonus", -1], ["Damage", 35]]]]
+	},
+	{
+		"singular" : "Upper Leg",
+		"plural" : "Upper Legs",
+		"adjective" : "Upper Leg",
+		"defmat" : "Muscle",
+		"symbol" : "-",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : []
+	},
+	{
+		"singular" : "Lower Leg",
+		"plural" : "Lower Legs",
+		"adjective" : "Lower Leg",
+		"defmat" : "Muscle",
+		"symbol" : "-",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : [["Knee", [["Attack Bonus", -3], ["Damage", 25]]]]
+	},
+	{
+		"singular" : "Leg",
+		"plural" : "Leg",
+		"adjective" : "Leg",
+		"defmat" : "Muscle",
+		"symbol" : "&",
+		"color" : [255, 192, 128],
+		"stats" : [],
+		"attacks" : [],
+                "components": ["Upper Leg", "Lower Leg", "Foot"]
 	},
         {
                 "singular" : "Body",
@@ -88,7 +160,7 @@
 		"symbol" : "@",
 		"color" : [255, 192, 128],
 		"stats" : [],
-		"attacks" : [["Punch", [["Attack Bonus", 0], ["Damage", 25]]]],
-                "Components": ["Torso", "Head"]
+		"attacks" : [],
+                "components": ["Torso", "Head", "Arm", "Arm", "Leg", "Leg"]
         }
 ]
