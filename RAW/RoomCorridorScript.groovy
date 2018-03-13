@@ -232,7 +232,7 @@ class RoomCorridorScript implements GenerationProcedure<Area> {
         size = game.random.nextInt(size);
         for (int i = 0; i < size; i++) {
             int x = 1 + game.random.nextInt(area.getWidth() - 2), y = 1 + game.random.nextInt(area.getHeight() - 2);
-            SimpleItem item =  new SimpleItem(itemDef);
+            Item item = itemDef.generateItem();
             area.addItem(item, x, y);
         }
     }
