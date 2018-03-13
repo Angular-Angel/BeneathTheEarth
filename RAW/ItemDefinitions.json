@@ -162,5 +162,45 @@
 		"stats" : [],
 		"attacks" : [],
                 "components": ["Torso", "Head", "Arm", "Arm", "Leg", "Leg"]
-        }
+        },
+        {
+		"singular" : "Helmet",
+		"plural" : "Helmets",
+		"adjective" : "Helmet",
+		"symbol" : "@",
+		"color" : [192, 192, 192],
+		"stats" : [["Weight", 3]],
+		"attacks" : [],
+                "equipment": [["Head"]]
+	},
+        {
+		"singular" : "Breastplate",
+		"plural" : "Breastplates",
+		"adjective" : "Breastplate",
+		"symbol" : "&",
+		"color" : [192, 192, 192],
+		"stats" : [["Weight", 10]],
+		"attacks" : [],
+                "equipment": [["Torso"]]
+	},
+        {
+		"singular" : "Morphosleeve",
+		"plural" : "Morphosleeves",
+		"adjective" : "Morphosleeve",
+		"symbol" : "=",
+		"color" : [192, 192, 192],
+		"stats" : [["Weight", 5]],
+		"attacks" : [],
+                "equipment": [["Arm"], ["Leg"]]
+	,
+        {
+		"singular" : "Gauntlet",
+		"plural" : "Gauntlets",
+		"adjective" : "Gauntlet",
+		"symbol" : "^",
+		"color" : [192, 192, 192],
+		"stats" : [["Weight", 5]],
+		"attacks" : [],
+                "equipment": [["Hand", "Lower Arm"]]
+	}
 ]
