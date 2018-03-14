@@ -41,6 +41,22 @@ class RoomCorridorScript implements GenerationProcedure<Area> {
         
         area.start.setTerrain(3,3, stairs);
         
+        ItemDefinition itemDef = game.registry.items.get("Helmet");
+        Item item = itemDef.generateItem();
+        area.start.addItem(item, 4, 4);
+        
+        itemDef = game.registry.items.get("Breastplate");
+        item = itemDef.generateItem();
+        area.start.addItem(item, 5, 4);
+        
+        itemDef = game.registry.items.get("Morphosleeve");
+        item = itemDef.generateItem();
+        area.start.addItem(item, 6, 4);
+        
+        itemDef = game.registry.items.get("Gauntlet");
+        item = itemDef.generateItem();
+        area.start.addItem(item, 7, 4);
+        
         addCorridors(area.start, 4);
         
         for (int i = 1; i < 100 && i < area.localAreas.size(); i++) {

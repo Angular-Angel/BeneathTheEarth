@@ -192,7 +192,7 @@
 		"stats" : [["Weight", 5]],
 		"attacks" : [],
                 "equipment": [["Arm"], ["Leg"]]
-	,
+	},
         {
 		"singular" : "Gauntlet",
 		"plural" : "Gauntlets",
