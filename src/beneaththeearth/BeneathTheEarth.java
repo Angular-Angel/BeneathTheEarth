@@ -28,6 +28,7 @@ public class BeneathTheEarth extends Game {
     
     public BeneathTheEarth() {
         super();
+        registry.readJSONStatDescriptions(new File("RAW/StatDescriptions.json"));
         registry.readJSONMaterials(new File("RAW/MaterialDefinitions.json"));
         registry.readJSONItemDefs(new File("RAW/ItemDefinitions.json"));
         registry.readJSONBodyDefs(new File("RAW/BodyDefinitions.json"));
