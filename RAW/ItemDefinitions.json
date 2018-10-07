@@ -1,206 +1,61 @@
 [
-	{
-		"singular" : "Longsword",
-		"plural" : "Longswords",
-		"adjective" : "Longsword",
-		"symbol" : "\\",
-		"color" : [192, 192, 192],
-		"stats" : [["Weight", 3], ["Two Handed", 1]],
-		"attacks" : [["Slash", [["Attack Bonus", 0], ["Damage", 50]]], ["Stab", [["Attack Bonus", 1], ["Damage", 50]]]]
-	},
-        {
-		"singular" : "Wand",
-		"plural" : "Wands",
-		"adjective" : "Wand",
-		"symbol" : "/",
-		"color" : [255, 255, 51],
-                "script" : "RAW/WandScript.groovy",
-                "stats" : [],
-		"attacks" : []
-                
-        },
-	{
-		"singular" : "Heart",
-		"plural" : "Hearts",
-		"adjective" : "Heart",
-		"defmat" : "Muscle",
-		"symbol" : "*",
-		"color" : [200, 0, 0],
-		"stats" : [],
-		"attacks" : []
-	},
-	{
-		"singular" : "Torso",
-		"plural" : "Torsos",
-		"adjective" : "Torso",
-		"defmat" : "Muscle",
-		"symbol" : "&",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : [],
-                "components": ["Heart"]
-	},
-        {
-                "singular" : "Brain",
-		"plural" : "Brains",
-		"adjective" : "Brain",
-		"defmat" : "Brain",
-		"symbol" : "@",
-		"color" : [200, 0, 0],
-		"stats" : [],
-		"attacks" : []
-        },
-	{
-		"singular" : "Skull",
-		"plural" : "Skulls",
-		"adjective" : "Skull",
-		"defmat" : "Bone",
-		"symbol" : "@",
-		"color" : [255, 255, 255],
-		"stats" : [],
-		"attacks" : []
-	},
-	{
-		"singular" : "Head",
-		"plural" : "Heads",
-		"adjective" : "Head",
-		"defmat" : "Muscle",
-		"symbol" : "@",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : [["Headbutt", [["Attack Bonus", -3], ["Damage", 15]]]],
-                "components": ["Brain", "Skull"]
-	},
-	{
-		"singular" : "Hand",
-		"plural" : "Hands",
-		"adjective" : "Hand",
-		"defmat" : "Muscle",
-		"symbol" : "^",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : [["Punch", [["Attack Bonus", 0], ["Damage", 25]]]]
-	},
-	{
-		"singular" : "Upper Arm",
-		"plural" : "Upper Arms",
-		"adjective" : "Upper Arm",
-		"defmat" : "Muscle",
-		"symbol" : "-",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : []
-	},
-	{
-		"singular" : "Lower Arm",
-		"plural" : "Lower Arms",
-		"adjective" : "Lower Arm",
-		"defmat" : "Muscle",
-		"symbol" : "-",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : [["Elbow", [["Attack Bonus", -2], ["Damage", 20]]]]
-	},
-	{
-		"singular" : "Arm",
-		"plural" : "Arms",
-		"adjective" : "Arm",
-		"defmat" : "Muscle",
-		"symbol" : "&",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : [],
-                "components": ["Upper Arm", "Lower Arm", "Hand"]
-	},
-	{
-		"singular" : "Foot",
-		"plural" : "Foots",
-		"adjective" : "Foot",
-		"defmat" : "Muscle",
-		"symbol" : "^",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : [["Kick", [["Attack Bonus", -1], ["Damage", 35]]]]
-	},
-	{
-		"singular" : "Upper Leg",
-		"plural" : "Upper Legs",
-		"adjective" : "Upper Leg",
-		"defmat" : "Muscle",
-		"symbol" : "-",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : []
-	},
-	{
-		"singular" : "Lower Leg",
-		"plural" : "Lower Legs",
-		"adjective" : "Lower Leg",
-		"defmat" : "Muscle",
-		"symbol" : "-",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : [["Knee", [["Attack Bonus", -3], ["Damage", 25]]]]
-	},
-	{
-		"singular" : "Leg",
-		"plural" : "Leg",
-		"adjective" : "Leg",
-		"defmat" : "Muscle",
-		"symbol" : "&",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : [],
-                "components": ["Upper Leg", "Lower Leg", "Foot"]
-	},
-        {
-                "singular" : "Body",
-		"plural" : "Bodies",
-		"adjective" : "Body",
-		"symbol" : "@",
-		"color" : [255, 192, 128],
-		"stats" : [],
-		"attacks" : [],
-                "components": ["Torso", "Head", "Arm", "Arm", "Leg", "Leg"]
-        },
-        {
-		"singular" : "Helmet",
-		"plural" : "Helmets",
-		"adjective" : "Helmet",
-		"symbol" : "@",
-		"color" : [192, 192, 192],
-		"stats" : [["Weight", 3]],
-		"attacks" : [],
-                "equipment": [["Head"]]
-	},
-        {
-		"singular" : "Breastplate",
-		"plural" : "Breastplates",
-		"adjective" : "Breastplate",
-		"symbol" : "&",
-		"color" : [192, 192, 192],
-		"stats" : [["Weight", 10]],
-		"attacks" : [],
-                "equipment": [["Torso"]]
-	},
-        {
-		"singular" : "Morphosleeve",
-		"plural" : "Morphosleeves",
-		"adjective" : "Morphosleeve",
-		"symbol" : "=",
-		"color" : [192, 192, 192],
-		"stats" : [["Weight", 5]],
-		"attacks" : [],
-                "equipment": [["Arm"], ["Leg"]]
-	},
-        {
-		"singular" : "Gauntlet",
-		"plural" : "Gauntlets",
-		"adjective" : "Gauntlet",
-		"symbol" : "^",
-		"color" : [192, 192, 192],
-		"stats" : [["Weight", 5]],
-		"attacks" : [],
-                "equipment": [["Hand", "Lower Arm"]]
-	}
+    {
+        "singular" : "Longsword",
+        "plural" : "Longswords",
+        "adjective" : "Longsword",
+        "symbol" : "\\",
+        "color" : [192, 192, 192],
+        "stats" : [["Weight", 3], ["Two Handed", 1]],
+        "attacks" : [["Slash", [["Attack Bonus", 0], ["Damage", 50]]], ["Stab", [["Attack Bonus", 1], ["Damage", 50]]]]
+    },
+    {
+        "singular" : "Wand",
+        "plural" : "Wands",
+        "adjective" : "Wand",
+        "symbol" : "/",
+        "color" : [255, 255, 51],
+        "script" : "RAW/WandScript.groovy",
+        "stats" : [],
+        "attacks" : []
+    },
+    {
+        "singular" : "Helmet",
+        "plural" : "Helmets",
+        "adjective" : "Helmet",
+        "symbol" : "@",
+        "color" : [192, 192, 192],
+        "stats" : [["Weight", 3]],
+        "attacks" : [],
+        "equipment": [["Head"]]
+    },
+    {
+        "singular" : "Breastplate",
+        "plural" : "Breastplates",
+        "adjective" : "Breastplate",
+        "symbol" : "&",
+        "color" : [192, 192, 192],
+        "stats" : [["Weight", 10]],
+        "attacks" : [],
+        "equipment": [["Torso"]]
+    },
+    {
+        "singular" : "Morphosleeve",
+        "plural" : "Morphosleeves",
+        "adjective" : "Morphosleeve",
+        "symbol" : "=",
+        "color" : [192, 192, 192],
+        "stats" : [["Weight", 5]],
+        "attacks" : [],
+        "equipment": [["Arm"], ["Leg"]]
+    },
+    {
+        "singular" : "Gauntlet",
+        "plural" : "Gauntlets",
+        "adjective" : "Gauntlet",
+        "symbol" : "^",
+        "color" : [192, 192, 192],
+        "stats" : [["Weight", 5]],
+        "attacks" : [],
+        "equipment": [["Hand", "Lower Arm"]]
+    }
 ]

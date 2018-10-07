@@ -9,7 +9,7 @@ package beneaththeearth;
 import roguelikeengine.display.RoguelikeInterface;
 import roguelikeengine.display.DisplayChar;
 import roguelikeengine.Game;
-import roguelikeengine.largeobjects.Creature;
+import roguelikeengine.largeobjects.Body;
 import roguelikeengine.area.AreaLocation;
 import roguelikeengine.area.LocalArea;
 import roguelikeengine.controller.Controller;
@@ -30,6 +30,7 @@ public class BeneathTheEarth extends Game {
         super();
         registry.readJSONStatDescriptions(new File("RAW/StatDescriptions.json"));
         registry.readJSONMaterials(new File("RAW/MaterialDefinitions.json"));
+        registry.readJSONItemDefs(new File("RAW/BodyParts.json"));
         registry.readJSONItemDefs(new File("RAW/ItemDefinitions.json"));
         registry.readJSONBodyDefs(new File("RAW/BodyDefinitions.json"));
         registry.readJSONTerrainDefs(new File("RAW/TerrainDefinitions.json"));
@@ -52,7 +53,7 @@ public class BeneathTheEarth extends Game {
             GenerationProcedure<Area> script = null;
             Area area;
             LocalArea start;
-            Creature body;
+            Body body;
             Controller player;
             clock.clearActors();
             switch (display.getKeyChar()) {
@@ -68,7 +69,7 @@ public class BeneathTheEarth extends Game {
             
             area = script.generate();
             start = area.start;
-            body = new Creature("Player", new AreaLocation(start, 5, 5), 
+            body = new Body("Player", new AreaLocation(start, 5, 5), 
                    registry.bodyTypes.get("Human"));
             start.addEntity(body);
             player = new Player(body, game);

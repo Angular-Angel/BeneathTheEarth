@@ -7,15 +7,15 @@ import roguelikeengine.stat.*;
 
 class HumanBiologyScript implements BiologyScript {
     
-    public boolean isAlive(Creature creature) {
-        return (creature.getBody().stats.getScore("HP") > 0);
+    public boolean isAlive(Body body) {
+        return (body.getBody().stats.getScore("HP") > 0);
     }
     
-    public void step(Creature creature) {
+    public void step(Body body) {
     }
     
-    public void beAttacked(Creature creature, Attack a) {
-        creature.getBody().takeAttack(a);
+    public void beAttacked(Body body, Attack a) {
+        body.getBody().takeAttack(a);
     }
     
     public void die() {

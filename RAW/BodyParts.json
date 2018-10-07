@@ -1,0 +1,146 @@
+[
+    {
+        "singular" : "Heart",
+        "plural" : "Hearts",
+        "adjective" : "Heart",
+        "defmat" : "Muscle",
+        "symbol" : "*",
+        "color" : [200, 0, 0],
+        "stats" : [["Internal", 1]],
+        "attacks" : []
+    },
+    {
+        "singular" : "Torso",
+        "plural" : "Torsos",
+        "adjective" : "Torso",
+        "defmat" : "Muscle",
+        "symbol" : "&",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : [],
+        "components": ["Heart"]
+    },
+    {
+        "singular" : "Brain",
+        "plural" : "Brains",
+        "adjective" : "Brain",
+        "defmat" : "Brain",
+        "symbol" : "@",
+        "color" : [200, 0, 0],
+        "stats" : [["Internal", 1]],
+        "attacks" : []
+    },
+    {
+        "singular" : "Skull",
+        "plural" : "Skulls",
+        "adjective" : "Skull",
+        "defmat" : "Bone",
+        "symbol" : "@",
+        "color" : [255, 255, 255],
+        "stats" : [["Internal", 1]],
+        "attacks" : []
+    },
+    {
+        "singular" : "Head",
+        "plural" : "Heads",
+        "adjective" : "Head",
+        "defmat" : "Muscle",
+        "symbol" : "@",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : [["Headbutt", [["Attack Bonus", -3], ["Damage", 15]]]],
+        "components": ["Brain", "Skull"]
+    },
+    {
+        "singular" : "Hand",
+        "plural" : "Hands",
+        "adjective" : "Hand",
+        "defmat" : "Muscle",
+        "symbol" : "^",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : [["Punch", [["Attack Bonus", 0], ["Damage", 25]]]]
+    },
+    {
+        "singular" : "Upper Arm",
+        "plural" : "Upper Arms",
+        "adjective" : "Upper Arm",
+        "defmat" : "Muscle",
+        "symbol" : "-",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : []
+    },
+    {
+        "singular" : "Lower Arm",
+        "plural" : "Lower Arms",
+        "adjective" : "Lower Arm",
+        "defmat" : "Muscle",
+        "symbol" : "-",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : [["Elbow", [["Attack Bonus", -2], ["Damage", 20]]]]
+    },
+    {
+        "singular" : "Arm",
+        "plural" : "Arms",
+        "adjective" : "Arm",
+        "defmat" : "Muscle",
+        "symbol" : "&",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : [],
+        "components": ["Upper Arm", "Lower Arm", "Hand"]
+    },
+    {
+        "singular" : "Foot",
+        "plural" : "Foots",
+        "adjective" : "Foot",
+        "defmat" : "Muscle",
+        "symbol" : "^",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : [["Kick", [["Attack Bonus", -1], ["Damage", 35]]]]
+    },
+    {
+        "singular" : "Upper Leg",
+        "plural" : "Upper Legs",
+        "adjective" : "Upper Leg",
+        "defmat" : "Muscle",
+        "symbol" : "-",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : []
+    },
+    {
+        "singular" : "Lower Leg",
+        "plural" : "Lower Legs",
+        "adjective" : "Lower Leg",
+        "defmat" : "Muscle",
+        "symbol" : "-",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : [["Knee", [["Attack Bonus", -3], ["Damage", 25]]]]
+    },
+    {
+        "singular" : "Leg",
+        "plural" : "Leg",
+        "adjective" : "Leg",
+        "defmat" : "Muscle",
+        "symbol" : "&",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : [],
+        "components": ["Upper Leg", "Lower Leg", "Foot"]
+    },
+    {
+        "singular" : "Body",
+        "plural" : "Bodies",
+        "adjective" : "Body",
+        "symbol" : "@",
+        "color" : [255, 192, 128],
+        "stats" : [],
+        "attacks" : [],
+        "components": ["Torso", "Head", "Arm", "Arm", "Leg", "Leg"]
+    }
+]

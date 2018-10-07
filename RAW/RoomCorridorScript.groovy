@@ -254,13 +254,13 @@ class RoomCorridorScript implements GenerationProcedure<Area> {
     }
     
     private void populateRoom(LocalArea localArea) {
-        CreatureDefinition enemyDef = game.registry.bodyTypes.get("Human");
+        BodyDefinition enemyDef = game.registry.bodyTypes.get("Human");
         int size = localArea.getWidth() * localArea.getHeight();
         size /= 9;
         size = game.random.nextInt(size);
         for (int i = 0; i < size; i++) {
             int x = 1 + game.random.nextInt(localArea.getWidth() - 2), y = 1 + game.random.nextInt(localArea.getHeight() - 2);
-            Creature enemy = new Creature("Enemy", new AreaLocation(localArea, x, y), enemyDef);
+            Body enemy = new Body("Enemy", new AreaLocation(localArea, x, y), enemyDef);
             BasicAI basicAI = new BasicAI(enemy);
             area.add(basicAI);
             localArea.addEntity(enemy);
