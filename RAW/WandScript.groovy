@@ -3,7 +3,7 @@ import roguelikeengine.largeobjects.*;
 import roguelikeengine.stat.*;
 import roguelikeengine.display.*;
 
-class WandScript implements ItemScript {
+class WandScript implements ItemUseScript {
 
 	public void run(RoguelikeInterface display, Item i, Body body) {
         }
