@@ -1,12 +1,40 @@
-[
+[	
+	{
+		"singular" : "Blade",
+        "plural" : "Blades",
+        "adjective" : "Blade",
+        "defmat" : "Steel",
+        "symbol" : "\\",
+        "color" : [192, 192, 192],
+        "stats" : [["Weight", 2]],
+        "attacks" : [["Slash", [["Attack Bonus", 0], ["Damage", 50]]], ["Stab", [["Attack Bonus", 1], ["Damage", 50]]]]
+	},
+	{
+		"singular" : "Hilt",
+        "plural" : "Hilts",
+        "adjective" : "Hilt",
+        "defmat" : "Steel",
+        "symbol" : "\\",
+        "color" : [192, 192, 192],
+        "stats" : [["Weight", 1]],
+        "attacks" : []
+	},
     {
         "singular" : "Longsword",
         "plural" : "Longswords",
         "adjective" : "Longsword",
         "symbol" : "\\",
         "color" : [192, 192, 192],
-        "stats" : [["Weight", 3], ["Two Handed", 1]],
-        "attacks" : [["Slash", [["Attack Bonus", 0], ["Damage", 50]]], ["Stab", [["Attack Bonus", 1], ["Damage", 50]]]]
+        "stats" : [["Two Handed", 1]],
+        "attacks" : [],
+        "connections": [{
+	        	"item": "Blade",
+	        	"stats" : [["Integrated", 1]]
+	        },
+	        {
+	        	"item": "Hilt",
+	        	"stats" : [["Integrated", 1]]
+	        }]
     },
     {
         "singular" : "Wand",

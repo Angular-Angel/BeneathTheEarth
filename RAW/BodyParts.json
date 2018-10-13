@@ -6,7 +6,7 @@
         "defmat" : "Muscle",
         "symbol" : "*",
         "color" : [200, 0, 0],
-        "stats" : [["Internal", 1]],
+        "stats" : [],
         "attacks" : []
     },
     {
@@ -18,7 +18,10 @@
         "color" : [255, 192, 128],
         "stats" : [],
         "attacks" : [],
-        "components": ["Heart"]
+        "connections": [{
+	        	"item": "Heart",
+	        	"stats" : [["Internal", 1], ["Integrated", 1]]
+	        }]
     },
     {
         "singular" : "Brain",
@@ -27,7 +30,7 @@
         "defmat" : "Brain",
         "symbol" : "@",
         "color" : [200, 0, 0],
-        "stats" : [["Internal", 1]],
+        "stats" : [],
         "attacks" : []
     },
     {
@@ -37,7 +40,7 @@
         "defmat" : "Bone",
         "symbol" : "@",
         "color" : [255, 255, 255],
-        "stats" : [["Internal", 1]],
+        "stats" : [],
         "attacks" : []
     },
     {
@@ -49,7 +52,13 @@
         "color" : [255, 192, 128],
         "stats" : [],
         "attacks" : [["Headbutt", [["Attack Bonus", -3], ["Damage", 15]]]],
-        "components": ["Brain", "Skull"]
+        "connections": [{
+	        	"item": "Brain",
+	        	"stats" : [["Internal", 1], ["Integrated", 1]]
+	        }, {
+	        	"item": "Skull",
+	        	"stats" : [["Internal", 1], ["Integrated", 1]]
+	        }]
     },
     {
         "singular" : "Hand",
@@ -90,7 +99,16 @@
         "color" : [255, 192, 128],
         "stats" : [],
         "attacks" : [],
-        "components": ["Upper Arm", "Lower Arm", "Hand"]
+        "connections": [{
+	        	"item": "Upper Arm",
+	        	"stats" : [["Integrated", 1]]
+	        }, {
+	        	"item": "Lower Arm",
+	        	"stats" : [["Integrated", 1]]
+	        }, {
+	        	"item": "Hand",
+	        	"stats" : [["Integrated", 1]]
+	        }]
     },
     {
         "singular" : "Foot",
@@ -131,7 +149,16 @@
         "color" : [255, 192, 128],
         "stats" : [],
         "attacks" : [],
-        "components": ["Upper Leg", "Lower Leg", "Foot"]
+        "connections": [{
+	        	"item": "Upper Leg",
+	        	"stats" : [["Integrated", 1]]
+	        }, {
+	        	"item": "Lower Leg",
+	        	"stats" : [["Integrated", 1]]
+	        }, {
+	        	"item": "Foot",
+	        	"stats" : [["Integrated", 1]]
+	        }]
     },
     {
         "singular" : "Body",
@@ -141,6 +168,24 @@
         "color" : [255, 192, 128],
         "stats" : [],
         "attacks" : [],
-        "components": ["Torso", "Head", "Arm", "Arm", "Leg", "Leg"]
+        "connections": [{
+	        	"item": "Torso",
+	        	"stats" : [["Integrated", 1]]
+	        }, {
+	        	"item": "Head",
+	        	"stats" : [["Integrated", 1]]
+	        }, {
+	        	"item": "Arm",
+	        	"stats" : [["Integrated", 1], ["Left", 1]]
+	        }, {
+	        	"item": "Arm",
+	        	"stats" : [["Integrated", 1], ["Right", 1]]
+	        }, {
+	        	"item": "Leg",
+	        	"stats" : [["Integrated", 1], ["Left", 1]]
+	        }, {
+	        	"item": "Leg",
+	        	"stats" : [["Integrated", 1], ["Right", 1]]
+	        }]
     }
 ]
